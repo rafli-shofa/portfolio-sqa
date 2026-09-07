@@ -8,6 +8,7 @@ AOS.init({
     offset: 100
 });
 
+
 /* =========================
    NAVBAR SCROLL EFFECT
 ========================= */
@@ -31,16 +32,21 @@ window.addEventListener("scroll", () => {
 
         header.style.boxShadow =
             "none";
+
     }
 
 });
+
 
 /* =========================
    ACTIVE MENU
 ========================= */
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+const sections =
+    document.querySelectorAll("section");
+
+const navLinks =
+    document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
 
@@ -55,15 +61,18 @@ window.addEventListener("scroll", () => {
             section.clientHeight;
 
         if (
-            pageYOffset >= sectionTop
-            &&
+            pageYOffset >= sectionTop &&
             pageYOffset <
             sectionTop + sectionHeight
         ) {
-            current = section.getAttribute("id");
+
+            current =
+                section.getAttribute("id");
+
         }
 
     });
+
 
     navLinks.forEach(link => {
 
@@ -73,70 +82,90 @@ window.addEventListener("scroll", () => {
             link.getAttribute("href") ===
             `#${current}`
         ) {
+
             link.classList.add("active");
+
         }
 
     });
 
 });
+
 
 /* =========================
    FADE IN PROJECTS
 ========================= */
 
 const cards =
-document.querySelectorAll(
-    ".project-card"
-);
+    document.querySelectorAll(
+        ".project-card, .personal-project-card"
+    );
+
 
 const observer =
-new IntersectionObserver(entries => {
+    new IntersectionObserver(
+        entries => {
 
-    entries.forEach(entry => {
+            entries.forEach(entry => {
 
-        if (entry.isIntersecting) {
+                if (entry.isIntersecting) {
 
-            entry.target.classList.add(
-                "show-card"
-            );
+                    entry.target.classList.add(
+                        "show-card"
+                    );
 
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
         }
+    );
 
-    });
-
-}, {
-    threshold: 0.15
-});
 
 cards.forEach(card => {
+
     observer.observe(card);
+
 });
+
 
 /* =========================
    COUNTER ANIMATION
 ========================= */
 
 const counters =
-document.querySelectorAll(
-    ".stat-card h3"
-);
+    document.querySelectorAll(
+        ".stat-card h3"
+    );
+
 
 const speed = 200;
 
+
 const animateCounter = counter => {
+
+    const originalText =
+        counter.innerText;
 
     const target =
         parseInt(
-            counter.innerText
-            .replace("+", "")
+            originalText.replace("+", "")
         );
 
+    const hasPlus =
+        originalText.includes("+");
+
     let count = 0;
+
 
     const update = () => {
 
         const increment =
             target / speed * 10;
+
 
         if (count < target) {
 
@@ -149,64 +178,67 @@ const animateCounter = counter => {
 
         } else {
 
-            if (
-                counter.innerText.includes("+")
-            ) {
+            counter.innerText =
+                hasPlus
+                    ? target + "+"
+                    : target;
 
-                counter.innerText =
-                    target + "+";
-
-            } else {
-
-                counter.innerText =
-                    target;
-            }
         }
+
     };
+
 
     update();
 
 };
 
+
 const counterObserver =
-new IntersectionObserver(entries => {
+    new IntersectionObserver(entries => {
 
-    entries.forEach(entry => {
+        entries.forEach(entry => {
 
-        if (entry.isIntersecting) {
+            if (entry.isIntersecting) {
 
-            animateCounter(
-                entry.target
-            );
+                animateCounter(
+                    entry.target
+                );
 
-            counterObserver.unobserve(
-                entry.target
-            );
-        }
+                counterObserver.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
 
     });
 
-});
 
 counters.forEach(counter => {
+
     counterObserver.observe(counter);
+
 });
+
 
 /* =========================
    HERO TYPING EFFECT
 ========================= */
 
 const typingElement =
-document.querySelector(".hero h2");
+    document.querySelector(".hero h2");
+
 
 if (typingElement) {
 
     const text =
-    "Software Quality Assurance | Manual & Automation Testing";
+        "Software Quality Assurance | Manual & Automation Testing";
 
     typingElement.innerHTML = "";
 
     let index = 0;
+
 
     function typeText() {
 
@@ -223,50 +255,68 @@ if (typingElement) {
             );
 
         }
+
     }
 
+
     typeText();
+
 }
+
 
 /* =========================
    SMOOTH SCROLL
 ========================= */
 
 document
-.querySelectorAll(
-'a[href^="#"]'
-)
-.forEach(anchor => {
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(anchor => {
 
-    anchor.addEventListener(
-        "click",
-        function(e){
+        anchor.addEventListener(
+            "click",
+            function(e){
 
-            e.preventDefault();
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
 
-            const target =
-            document.querySelector(
-                this.getAttribute("href")
-            );
 
-            target.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
+                if (!target){
 
-        }
-    );
+                    return;
 
-});
+                }
+
+
+                e.preventDefault();
+
+
+                target.scrollIntoView({
+
+                    behavior:"smooth",
+
+                    block:"start"
+
+                });
+
+            }
+        );
+
+    });
+
 
 /* =========================
    CURRENT YEAR FOOTER
 ========================= */
 
 const footerText =
-document.querySelector(
-    "footer p"
-);
+    document.querySelector(
+        "footer p"
+    );
+
 
 if (footerText) {
 
