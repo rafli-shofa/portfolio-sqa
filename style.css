@@ -601,17 +601,24 @@ nav{
     background:#020617;
 
     overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
-.personal-project-media video,
-.personal-project-media img{
+.personal-project-media video{
     width:100%;
 
     height:100%;
 
     display:block;
 
-    object-fit:cover;
+    object-fit:contain;
+
+    background:#020617;
 }
 
 
@@ -792,10 +799,37 @@ nav{
     overflow:hidden;
 
     background:#000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
-.project-media img,
+
+/* =========================
+   PROJECT VIDEO
+========================= */
+
 .project-media video{
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+
+    background:#000;
+}
+
+
+/* =========================
+   PROJECT IMAGE
+========================= */
+
+.project-media img{
     width:100%;
 
     height:100%;
@@ -804,6 +838,7 @@ nav{
 
     display:block;
 }
+
 
 .project-content{
     padding:20px;
