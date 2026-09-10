@@ -694,21 +694,53 @@ nav{
     margin-bottom:25px;
 }
 
+.personal-project-content > p strong{
+    color:#f8fafc;
+
+    font-weight:700;
+}
+
+
+/* =========================
+   PERSONAL PROJECT DETAILS GRID
+========================= */
+
+.personal-project-details-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+
+    margin-bottom:22px;
+}
+
 
 /* =========================
    PERSONAL PROJECT DETAILS
 ========================= */
 
 .personal-project-details{
-    margin-bottom:22px;
+    margin-bottom:0;
+
+    background:
+        rgba(15,23,42,.55);
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    border-radius:16px;
+
+    padding:20px;
 }
 
 .personal-project-details h4{
-    color:#ffffff;
+    color:#38bdf8;
 
     font-size:1rem;
 
-    margin-bottom:12px;
+    margin-bottom:14px;
 }
 
 .personal-project-details ul{
@@ -720,11 +752,11 @@ nav{
 .personal-project-details li{
     color:#cbd5e1;
 
-    font-size:.9rem;
+    font-size:.85rem;
 
     line-height:1.6;
 
-    margin-bottom:5px;
+    margin-bottom:6px;
 }
 
 
@@ -1261,6 +1293,11 @@ footer p{
         height:400px;
     }
 
+    .personal-project-details-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
 }
 
 
@@ -1338,6 +1375,12 @@ footer p{
         font-size:1.4rem;
     }
 
+    .personal-project-details-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
 }
 
 
@@ -1412,6 +1455,10 @@ footer p{
 
     .personal-project-content h3{
         font-size:1.25rem;
+    }
+
+    .personal-project-details{
+        padding:16px;
     }
 
     .personal-project-details li{
