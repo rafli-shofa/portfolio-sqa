@@ -1369,7 +1369,14 @@ footer p {
             repeat(2, 1fr);
     }
 
-    /* Certifications: 2 columns on tablet */
+}
+
+
+/* =========================
+   CERTIFICATION TABLET
+========================= */
+
+@media (max-width: 900px) {
 
     .cert-grid {
         grid-template-columns:
@@ -1419,8 +1426,6 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    /* Certifications: 1 column */
-
     .cert-grid {
         grid-template-columns: 1fr;
     }
@@ -1434,7 +1439,8 @@ footer p {
     }
 
     .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .section-header h2 {
@@ -1510,7 +1516,8 @@ footer p {
     }
 
     .tool-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
 
         gap: 10px;
     }
